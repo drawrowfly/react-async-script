@@ -97,10 +97,10 @@ export default function makeAsyncScript(getScriptURL, options) {
         if (scriptId) {
           script.id = scriptId;
         }
-        
+
         if (customIds){
           if (typeof(customIds) === 'object'){
-            for(let keys in customIds){
+            for(let key in customIds){
               script[key] = customIds[key];
             }
           }
