@@ -57,7 +57,7 @@ export default function makeAsyncScript(getScriptURL, options) {
       componentDidMount() {
         const scriptURL = this.setupScriptURL();
         const key = this.asyncScriptLoaderGetScriptLoaderID();
-        const { globalName, callbackName, scriptId, setAttributeList } = options;
+        const { globalName, callbackName, scriptId, attributes } = options;
 
         // check if global object already attached to window
         if (globalName && typeof window[globalName] !== "undefined") {
@@ -98,10 +98,10 @@ export default function makeAsyncScript(getScriptURL, options) {
           script.id = scriptId;
         }
 
-        if (setAttributeList){
-          if (typeof(setAttributeList) === 'object'){
-            for(let key in setAttributeList){
-              script.setAttribute(key, setAttributeList[key]);
+        if (attributes){
+          if (typeof(attributes) === 'object'){
+            for(let key in attributes){
+              script.setAttribute(key, attributes[key]);
             }
           }
         }
